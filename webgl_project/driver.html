@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ASGN 4</title>
+
+        <!-- Load external libs -->
+        <script src="lib/cuon-matrix-cse160.js"></script>
+        <script src="lib/cuon-utils.js"></script>
+        <script src="lib/webgl-debug.js"></script>
+        <script src="lib/webgl-utils.js"></script>
+
+		<!-- Load Cylinder class -->
+        <script src="models/cylinder.js"></script>
+		<script src="models/sphere.js"></script>
+		<script src="camera.js"></script>
+		
+
+        <!-- Load main -->
+        <script src="asgn4.js"></script>
+    </head>
+
+    <body onload="main()">
+        <canvas id="canvas" width="400" height="400"></canvas>
+		
+		<!-- select which cylinder to change -->
+		<br/><br/>
+		<b>Select the cylinder to edit: 
+		<input id="cyl" type="number" min="0" max="0"></input> 
+		</b><br/>
+		
+		<!--------- #3 --------->
+		<!-- Inputs for v1 -->
+		<b>Number of sides: </b> n =
+		
+		<!-- create an input for the n sides -->
+		<input id="n" type="number"></input> 
+		
+		<!-- select the shading style -->
+		<br/>
+		<b/>
+		
+		Rendering Style:
+		</b>
+		
+		Smooth:<input type="checkbox" id="sm" name="sm" oninput="handleDrawEvent()" checked>
+		Shaded:<input type="checkbox" id="sh" name="sh" oninput="handleDrawEvent()">
+		Wireframe:<input type="checkbox" id="wf" name="wf" oninput="handleDrawEvent()">
+		<br/>
+		
+		<!-- select the Projection style -->
+		<b/>Projection Style: </b>
+		<input type="checkbox" id="proj" name="proj" oninput="setProjection()" checked>
+		<br/><br/>
+		
+		<!-- Translate sliders -->
+		Translate: <br/>
+		X: 
+        <input type="range" min="-10" max="10" value="0"  class="slider" id="xTran" oninput="handleDrawEvent()"></input>
+		Y: 
+        <input type="range" min="-10" max="10" value="0"  class="slider" id="yTran" oninput="handleDrawEvent()"></input>
+		Z: 
+        <input type="range" min="-10" max="10" value="0"  class="slider" id="zTran" oninput="handleDrawEvent()"></input>
+		<br/><br/>
+		
+		<!-- Rotate sliders -->
+		Rotate: <br/>
+		X:
+        <input type="range" min="-180" max="180" value="0"  class="slider" id="xRot" oninput="handleDrawEvent()"></input>
+		Y:
+        <input type="range" min="-180" max="180" value="0"  class="slider" id="yRot" oninput="handleDrawEvent()"></input>
+		Z:
+        <input type="range" min="-180" max="180" value="0"  class="slider" id="zRot" oninput="handleDrawEvent()"></input>
+		<br/><br/>
+		
+		<!-- Scale sliders -->
+		Scale: <br/>
+		X: 
+        <input type="range" min="0" max="10" value="5"  class="slider" id="xScale" oninput="handleDrawEvent()"></input>
+		Y: 
+        <input type="range" min="0" max="10" value="5"  class="slider" id="yScale" oninput="handleDrawEvent()"></input>
+		Z: 
+        <input type="range" min="0" max="10" value="5"  class="slider" id="zScale" oninput="handleDrawEvent()"></input>
+		<br/><br/>
+		
+		<!-- color sliders -->
+		Color:<br/>
+		R: 
+        <input type="range" min="0" max="10" value="5"  class="slider" id="red"></input>
+		G: 
+        <input type="range" min="0" max="10" value="5"  class="slider" id="green"></input>
+		B: 
+        <input type="range" min="0" max="10" value="5"  class="slider" id="blue"></input>
+		
+		<br/><br/>
+		<!-- create the Rocker, draw, create, and remove buttons -->
+		<input type="button" value="Rocket" onclick="rocket()"></input>
+		<input type="button" value="Draw" onclick="handleDrawEvent()"></input>
+		<input type="button" value="Create New Cylinder" onclick="newCylDraw()"></input>
+		<input type="button" value="Create New Sphere" onclick="newSphDraw()"></input>
+		<input type="button" value="Remove" onclick="removeCyl()"></input>
+		
+		<br/><br/>
+		Lighting:
+		<br/>
+		Ambient:
+		<input type="range" min="0" max="10" value="2"  class="slider" id="aLight" oninput="handleLight()"></input>
+		<br/>
+		Specular: <input type="checkbox" id="sp" name="sp" oninput="handleLight()" checked>
+        <input type="range" min="1" max="75" value="32"  class="slider" id="sLight" oninput="handleLight()"></input>
+		<br/><br/>
+		
+		Point Light Brightness: <input type="checkbox" id="pl" name="pl" oninput="handleLight()" checked>
+        <input type="range" min="0" max="10" value="8"  class="slider" id="pLight" oninput="handleLight()"></input>
+		<br/>
+		X: <input type="range" min="-10" max="10" value="-10"  class="slider" id="xLPos" oninput="handleLight()"></input>
+		Y: <input type="range" min="-10" max="10" value="0"  class="slider" id="yLPos" oninput="handleLight()"></input>
+		Z: <input type="range" min="-10" max="10" value="-10"  class="slider" id="zLPos" oninput="handleLight()"></input>
+		<br/><br/>
+		
+		Diffused Light Brightness: <input type="checkbox" id="dl" name="dl" oninput="handleLight()" checked>
+        <input type="range" min="0" max="10" value="8"  class="slider" id="dLight" oninput="handleLight()"></input>
+		<br/>
+		X: <input type="range" min="-10" max="10" value="10"  class="slider" id="xDPos" oninput="handleLight()"></input>
+		Y: <input type="range" min="-10" max="10" value="10"  class="slider" id="yDPos" oninput="handleLight()"></input>
+		Z: <input type="range" min="-10" max="10" value="-10"  class="slider" id="zDPos" oninput="handleLight()"></input>
+		
+    </body>
+</html>
