@@ -4,8 +4,8 @@
  
 ![Screenshot_20230124_042825](https://user-images.githubusercontent.com/22452121/214452741-66d51baa-e7bd-4041-9316-94436aa8b94e.png)
 
-How to run:
-1.) Click on "Code" button on top right
-2.) Then "Download ZIP"
-3.) Extract the files
+# How to run:
+1.) Click on "Code" button on top right <br>
+2.) Then "Download ZIP"<br>
+3.) Extract the files<br>
 4.) Open src/driver.html
