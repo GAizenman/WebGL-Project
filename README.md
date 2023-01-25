@@ -8,4 +8,4 @@
 1.) Click on "Code" button on top right <br>
 2.) Then "Download ZIP"<br>
 3.) Extract the files<br>
-4.) Open src/driver.html
+4.) Open src/features.html
